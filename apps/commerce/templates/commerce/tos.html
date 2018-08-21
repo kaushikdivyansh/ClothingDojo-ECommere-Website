@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {%load static%}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{% static "commerce/images/logo.ico"%}">
+
+
+        <title>Clothing Dojo</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700,700i,900" rel="stylesheet"> -->
+        <style media="screen">
+        .logo{
+            width: 25%;
+        }
+
+        .navbar{
+            min-height: 100px;
+        }
+
+        html,body{
+            font-family: 'Gotham-Rounded', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* background-color: #979797; */
+        }
+
+        .wrapper {
+            min-height: 100%;
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+
+        }
+        .content{
+            padding-bottom: 100px;
+            margin: 0px 50px;
+        }
+
+        .footer a{
+            display: inline-block !important;
+            margin: 15px 0px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+
+
+        .item{
+            margin-left: 60px;
+            margin-bottom: 20px;
+
+        }
+
+        .btn{
+            background: #000000;
+            color : #ffffff;
+
+        }
+
+        .item img{
+            margin-bottom: 10px;
+            /* border: 2px solid black; */
+        }
+
+
+        .nav-link{
+            font-size: 20px;
+            /* font-weight: bold; */
+
+        }
+
+        .quantity{
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+
+        .size{
+            font-size: 14px;
+        }
+
+
+        .clothingCategory{
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+
+        #quantity{
+            width: 40px;
+        }
+
+
+
+
+
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class=wrapper>
+            <div class="navbar">
+                <nav class="navbar navbar-expand-xl navbar-dark navbar-static fixed-top nopadding" style="background-color: #000000">
+                    <a href="/" class="navbar-brand">
+                        <img src="{%static "commerce/images/logo.png"%}" height="100" width="350" alt="Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#clothingDojo" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="clothingDojo">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="" class="nav-link">Learning Platform</a></li>
+                            <li class="nav-item active"><a href="/checkout" class="nav-link">Cart</a></li>
+                            <li class="nav-item active"><a href="/admin" class="nav-link">Admin</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="content">
+                <h1 class="mt-5">Terms of Service</h1>
+
+                <p>Last updated: 06/29/2018</p>
+
+                <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the http://www.mywebsite.com (change this) website and the My Mobile App (change this) mobile application (the "Service") operated by My Company (change this) ("us", "we", or "our").
+                Your access to and use of the Service is conditioned on your acceptance of and compliance with these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+                By accessing or using the Service you agree to be bound by these Terms. If you disagree with any part of the terms then you may not access the Service.</p>
+
+                <h4>Termination</h4>
+
+                <p>We may terminate or suspend access to our Service immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.
+                All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.</p>
+
+                <h4>Subscriptions</h4>
+                <p>Some parts of the Service are billed on a subscription basis ("Subscription(s)"). You will be billed in advance on a recurring ...</p>
+
+                <h4>Content</h4>
+
+                <p>Our Service allows you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material ("Content"). You are responsible for the …<p>
+
+                <h4>Links To Other Web Sites</h4>
+
+                <p>Our Service may contain links to third-party web sites or services that are not owned or controlled by My Company (change this).
+                My Company (change this) has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party web sites or services. You further acknowledge and agree that My Company (change this) shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such content, goods or services available on or through any such web sites or services.</p>
+
+                <h4>Changes</h4>
+
+                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material we will try to provide at least 30 (change this) days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
+
+                <h4>Contact Us</h4>
+
+                <p>If you have any questions about these Terms, please contact us.</p>
+            </div>
+
+            <div class="footer">
+                <footer>
+                    <div class="row no-gutters">
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="https://www.codingdojo.com/contact-us">CONTACT US</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/faq">FAQ</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/tos">TERMS OF SERVICE</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="http://d11p8zzranqxa6.cloudfront.net/files/Privacy_Policy.pdf">PRIVACY POLICY</a>
+
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    </body>
+</html>

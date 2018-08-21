@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {%load static%}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{% static "commerce/images/logo.ico"%}">
+
+
+        <title>Clothing Dojo</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700,700i,900" rel="stylesheet"> -->
+        <style media="screen">
+        .logo{
+
+        }
+
+        .navbar{
+            min-height: 100px;
+        }
+
+        html,body{
+            font-family: 'Gotham-Rounded', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* background-color: #979797; */
+        }
+
+        .wrapper {
+            min-height: 100%;
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+
+        }
+        .content{
+            padding-bottom: 200px;
+            margin: 0 20px;
+        }
+
+        .footer a{
+            display: inline-block !important;
+            margin: 15px 0px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+
+
+        .item{
+            margin-left: 60px;
+            margin-bottom: 20px;
+
+        }
+
+        .btn{
+            background: #000000;
+            color : #ffffff;
+
+        }
+
+        .item img{
+            margin-bottom: 10px;
+            /* border: 2px solid black; */
+        }
+
+
+        .nav-link{
+            font-size: 20px;
+            /* font-weight: bold; */
+
+        }
+
+        .quantity{
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+
+        .size{
+            font-size: 14px;
+        }
+
+
+        .clothingCategory{
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+
+        #quantity{
+            width: 40px;
+        }
+
+
+
+
+
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class=wrapper>
+            <div class="navbar">
+                <nav class="navbar navbar-expand-xl navbar-dark navbar-static fixed-top nopadding" style="background-color: #000000">
+                    <a href="/" class="navbar-brand">
+                        <img src="{%static "commerce/images/logo.png"%}" height="100" width="350" alt="Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#clothingDojo" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="clothingDojo">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="" class="nav-link">Learning Platform</a></li>
+                            <li class="nav-item active"><a href="/checkout" class="nav-link">Cart</a></li>
+                            <li class="nav-item active"><a href="/admin" class="nav-link">Admin</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            {% if free == False %}
+            <div class="jumbotron text-center">
+                <h1 class="display-4 font-weight-bold">You haven't selected your complimentary Coding Dojo shirt!</h1>
+                <h4 class="font-weight-bold">Please make your selection below and click Submit. You will be able to purchase additional items below.</h3>
+                    <img class="mt-2 mb-2" width="200" height="200" src="{%static "commerce/images/product1.png"%}" alt="">
+                    <form action="/free" method='post'>
+                        {% csrf_token %}
+                        <select name="size">
+                            {% for x in size %}
+                            {% if x.id < 11 %}
+                            <option value="{{  x.id  }}">{{  x.size  }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <input type="submit" class="btn btn-sm ml-1" value='Submit'>
+                    </form>
+                </div>
+                {% endif %}
+                <!-- <div class="container"> -->
+                <div class="content">
+
+                    <div class="jumbotron bg-light">
+                        <div class="row">
+
+
+                            {% for i in product %}
+                            <div class="col-sm-12 col-md-3 col-lg-3">
+
+                                <div class="card mb-4 box-shadow">
+
+
+
+                                    <img class="card-img-top mt-2" src="/static/commerce/images/{{i.image}}.png"  height="300" alt="Card image cap">
+                                    <div class="card-body text-center">
+                                        <p class="mb-0 lead card-text text-center">{{  i.description  }}</p>
+                                        <p class="mt-0 card-text text-center">Price: ${{  i.price  }}</p>
+
+                                        <form action="/cart/{{  i.id  }}" method='post'>
+                                            {% csrf_token %}
+
+                                            <div>
+                                                <p class="text-center">Quantity: <input class="text-center" id="quantity" type="number" name="{{  i.id  }}_quantity" step="1" placeholder="1" value=1></p>
+                                                <input type="hidden" name='id' value='{{  i.id  }}'>
+
+                                                <p class="text-center">Size:
+                                                    {% if i.id < 4 %}
+                                                    <select name="{{  i.id  }}_size">
+                                                        {% for x in size %}
+                                                        {% if x.id < 11 %}
+                                                        <option value="{{  x.id  }}">{{  x.size  }}</option>
+                                                    {% endif %}
+                                                    {% endfor %}
+                                                    </select>
+                                                </p>
+                                                {% else %}
+                                                <input type="hidden" name="{{  i.id  }}_size" value=11>
+                                                NA
+                                                {% endif %}
+                                            </div>
+                                            <input type="submit" class="btn align-items-center"value='Add to cart'>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+
+                    <!-- </div> -->
+
+
+            <div class="footer">
+                <footer>
+                    <div class="row no-gutters">
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="https://www.codingdojo.com/contact-us">CONTACT US</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/faq">FAQ</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/tos">TERMS OF SERVICE</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="http://d11p8zzranqxa6.cloudfront.net/files/Privacy_Policy.pdf">PRIVACY POLICY</a>
+
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    </body>
+</html>

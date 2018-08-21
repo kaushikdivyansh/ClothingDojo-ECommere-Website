@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {%load static%}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{% static "commerce/images/logo.ico"%}">
+
+
+        <title>Clothing Dojo</title>
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700,700i,900" rel="stylesheet">
+        <style media="screen">
+        .logo{
+            width: 25%;
+        }
+
+        .navbar{
+            min-height: 100px;
+        }
+
+        html,body{
+            font-family: 'Gotham-Rounded', sans-serif !important;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* background-color: #979797; */
+        }
+
+        .wrapper {
+            min-height: 100%;
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+
+        }
+        .content{
+            padding-bottom: 100px;
+            margin: 0px 50px;
+        }
+
+        .footer a{
+            display: inline-block !important;
+            margin: 15px 0px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+
+
+        .item{
+            margin-left: 60px;
+            margin-bottom: 20px;
+
+        }
+
+        .btn{
+            background: #000000;
+            color : #ffffff;
+            margin:0 auto;
+        }
+
+        .item img{
+            margin-bottom: 10px;
+            /* border: 2px solid black; */
+        }
+
+
+        .navbar{
+            margin-bottom: 70px;
+        }
+
+        .nav-link{
+            font-size: 20px;
+            /* font-weight: bold; */
+
+        }
+
+        .quantity{
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+
+        .size{
+            font-size: 14px;
+        }
+
+        .lead{
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .clothingCategory{
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+        #buttons{
+            display: block;
+            margin: 0 auto;
+        }
+
+        .links a{
+            color: white;
+        }
+
+
+        </style>
+
+    </head>
+
+    <body class="bg-light">
+
+        <div class=wrapper>
+            <div class="navbar">
+                <nav class="navbar navbar-expand-xl navbar-dark navbar-static fixed-top nopadding" style="background-color: #000000">
+                    <a href="/" class="navbar-brand">
+                        <img src="{%static "commerce/images/logo.png"%}" height="100" width="350" alt="Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#clothingDojo" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="clothingDojo">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="#about" class="nav-link">Learning Platform</a></li>
+                            <li class="nav-item active"><a href="/checkout" class="nav-link">Cart</a></li>
+                            <li class="nav-item active"><a href="/admin" class="nav-link">Admin</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+
+
+<div class="content">
+
+        <div class="container">
+            <div class="links">
+                <div class="row ml-1 mb-4">
+                        <input type="button" class="btn col-sm-12 col-md-3 col-lg-3" value='Export to Excel' onclick="fnExcelReport();">
+                        <input type="button" class="btn col-sm-12 col-md-3 col-lg-3" value='Export Cancel' onclick="fnExcelReportCancel();">
+                        <a class="btn col-sm-12 col-md-3 col-lg-3" href="mailto:{{  address  }}?Subject=Order%20reminder!&body=This%20is%20a%20friendly%20reminder%20that%20you%20have%20one%20week%20left%20to%20cancel/edit%20any%20orders%20you%20may%20have%20placed%20through%20the%20Clothing%20Dojo%20store!%0D%0A%0D%0ASincerely,%0D%0ACoding%20Dojo%0D%0A%0D%0A"target="_top">Send Reminder</a>
+                </div>
+                <div class="row ml-1 mb-4">
+                        <a class="btn col-sm-12 col-md-3 col-lg-3" href="/unlock">Unlock Orders</a>
+                        <a class="btn col-sm-12 col-md-3 col-lg-3" href="/locking">Lock Orders</a>
+                        <a class="btn col-sm-12 col-md-3 col-lg-3" href="/viewproduct">Edit/Add Product</a>
+
+                </div>
+            </div>
+
+            <table id=table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+                <thead>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                </thead>
+                <tfoot>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Size</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th>Email</th>
+                    <th>Date</th>
+                </tfoot>
+                <tbody>
+                    {% for i in final_data %}
+                        <tr>
+                            <td>{{  i.id  }}</td>
+                            <td>{{  i.product  }}</td>
+                            <td>{{  i.size  }}</td>
+                            <td>{{  i.quantity  }}</td>
+                            <td>{{  i.city  }}, {{  i.state  }}</td>
+                            <td>{{  i.user  }}</td>
+                            <td>{{  i.created_at  }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <table id=cancel_table class="table table-striped table-bordered table-responsive-md" cellspacing="0" width="100%">
+                    <thead>
+                        <th>Cancellation ID</th>
+                        <th>User Email</th>
+                        <th>Order Creation Date</th>
+                        <th>Cancellation Request Date</th>
+                    </thead>
+                    <tfoot>
+                        <th>Cancellation ID</th>
+                        <th>User Email</th>
+                        <th>Order Creation Date</th>
+                        <th>Cancellation Request Date</th>
+                    </tfoot>
+                    <tbody>
+                        {% for i in cancel_data %}
+                            <tr>
+                                <td>{{  i.id  }}</td>
+                                <td>{{  i.user.email  }}</td>
+                                <td>{{  i.order_date  }}</td>
+                                <td>{{  i.cancel_date  }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+
+    <script>
+    function fnExcelReport()
+    {
+        var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+        var textRange; var j=0;
+        tab = document.getElementById('table');
+        for(j = 0 ; j < tab.rows.length ; j++)
+        {
+            tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        }
+        tab_text=tab_text+"</table>";
+        tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+        tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+        {
+            txtArea1.document.open("txt/html","replace");
+            txtArea1.document.write(tab_text);
+            txtArea1.document.close();
+            txtArea1.focus();
+            sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+        }
+        else                 //other browser not tested on IE 11
+            sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+        return (sa);
+    }
+    function fnExcelReportCancel()
+    {
+        var tab_text="<table border='2px'><tr bgcolor='#87AFC6'>";
+        var textRange; var j=0;
+        tab = document.getElementById('cancel_table');
+        for(j = 0 ; j < tab.rows.length ; j++)
+        {
+            tab_text=tab_text+tab.rows[j].innerHTML+"</tr>";
+        }
+        tab_text=tab_text+"</table>";
+        tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+        tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE ");
+        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+        {
+            txtArea1.document.open("txt/html","replace");
+            txtArea1.document.write(tab_text);
+            txtArea1.document.close();
+            txtArea1.focus();
+            sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xls");
+        }
+        else                 //other browser not tested on IE 11
+            sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+        return (sa);
+    }
+    </script>
+
+    <div class="footer">
+        <footer>
+            <div class="row no-gutters">
+                <a class="col-sm-12 col-md-3 col-lg-3" href="https://www.codingdojo.com/contact-us">CONTACT US</a>
+                <a class="col-sm-12 col-md-3 col-lg-3" href="/faq">FAQ</a>
+                <a class="col-sm-12 col-md-3 col-lg-3" href="/tos">TERMS OF SERVICE</a>
+                <a class="col-sm-12 col-md-3 col-lg-3" href="http://d11p8zzranqxa6.cloudfront.net/files/Privacy_Policy.pdf">PRIVACY POLICY</a>
+
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

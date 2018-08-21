@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        {%load static%}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{% static "commerce/images/logo.ico"%}">
+
+
+        <title>Clothing Dojo</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700,700i,900" rel="stylesheet"> -->
+        <style media="screen">
+        .logo{
+            width: 25%;
+        }
+
+        .navbar{
+            min-height: 100px;
+        }
+
+        html,body{
+            font-family: 'Gotham-Rounded', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            /* background-color: #979797; */
+        }
+
+        .wrapper {
+            min-height: 100%;
+            position: relative;
+        }
+
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: auto;
+            width: 100%;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+
+        }
+        .content{
+            padding-bottom: 150px;
+            margin: 0px 50px;
+        }
+
+        .footer a{
+            display: inline-block !important;
+            margin: 15px 0px;
+            text-align: center;
+            font-size: 12px;
+            color: white;
+        }
+
+
+        .item{
+            margin-left: 60px;
+            margin-bottom: 20px;
+
+        }
+
+        .btn{
+            background: #000000;
+            color : #ffffff;
+
+        }
+
+        .item img{
+            margin-bottom: 10px;
+            /* border: 2px solid black; */
+        }
+
+
+        .nav-link{
+            font-size: 20px;
+            /* font-weight: bold; */
+
+        }
+
+        .quantity{
+            font-size: 14px;
+            margin-bottom: 0px;
+        }
+
+        .size{
+            font-size: 14px;
+        }
+
+
+        .clothingCategory{
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .box-shadow {
+            box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+        }
+
+        #quantity{
+            width: 40px;
+        }
+
+
+
+
+
+        </style>
+    </head>
+    <body class="bg-light">
+        <div class=wrapper>
+            <div class="navbar">
+                <nav class="navbar navbar-expand-xl navbar-dark navbar-static fixed-top nopadding" style="background-color: #000000">
+                    <a href="/" class="navbar-brand">
+                        <img src="{%static "commerce/images/logo.png"%}" height="100" width="350" alt="Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#clothingDojo" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="clothingDojo">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="" class="nav-link">Learning Platform</a></li>
+                            <li class="nav-item active"><a href="/checkout" class="nav-link">Cart</a></li>
+                            <li class="nav-item active"><a href="/admin" class="nav-link">Admin</i></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="content">
+                <h4 class="mt-5">GENERAL ORDER INFORMATION</h4>
+                    <ul>
+                        <li>We cannot change any information on an existing order once it has been processed, including but not limited to the shipping address, billing information, size, item, or quantity. additionally, orders cannot be cancelled after processing, and are subject to return and exchange policies.</li>
+                        <li>Sales tax will be applied on all domestic orders. tax is calculated based on the applicable sales tax and use tax laws within each state.</li>
+                        <li>Orders can only be placed through the website. we do not accept orders over the phone.</li>
+                        <li>If the item you ordered runs out of stock after your order has been placed, we will contact you via the email provided with your order to exchange the item for another item of equal value. If we do not receive a response within 10 business days, we reserve the right to refund your order in full.</li>
+                        <li>Merchandise is limited to the sizes, colors, and variants listed on our website. If a size or variant does not appear online, it is currently unavailable.</li>
+                        <li>Customers have up to a maximum of 60 days from the date of shipment to claim their package as lost in order to receive any sort of compensation regarding their order.</li>
+                    </ul>
+
+
+                <h4 class="text-uppercase">Damaged, Incorrect or Incomplete orders</h4>
+                    <ul>
+                        <li>If your order arrives damaged, incorrect or incomplete please contact our customer service team.</li>
+                        <li>If your item has been damaged, photograph evidence will need to be sent to our email address. once we receive the photographs, we will issue a return label via e-mail. Once the item has been shipped back to our facility, we will provide a replacement.</li>
+                        <li>If your order arrives and is an incorrect item, please contact us via email. once we verify that your order is incorrect, we will issue a return label via e-mail. Once the item has been shipped back to our facility, we will provide a replacement.</li>
+                        <li>We are not responsible for any damages to any merchandise once the item has been worn or washed.</li>
+                    </ul>
+
+
+                <h4 class="text-uppercase">Limited edition and pre-order sales</h4>
+                    <ul>
+                        <li>Shipping and delivery dates for any and all limited edition and pre-order sales are not guaranteed unless otherwise specified.</li>
+                        <li>Returns and exchanges will not be accepted for limited edition merchandise.</li>
+                        <li>If your package is returned to our facility due to shipping error, we will contact you for an updated address via the e-mail provided with your shipping information. If we do not receive a response within 10 business days, we hold the right to refund your order.</li>
+
+                    </ul>
+
+                <h4 class="text-uppercase">general shipping information</h4>
+                    <ul>
+                        <li>In most cases, orders are shipped within 2-3 business days. shipping and delivery dates are not guaranteed unless otherwise specified.</li>
+                        <li>Once your package has shipped, you will receive tracking information via the e-mail provided with your shipping information.</li>
+                        <li>Domestic orders normally arrive within 3-7 days of the ship date unless otherwise specified. shipping delays can occur and we are not responsible for the speed at which orders arrive once they have left our facility.</li>
+                        <li>International orders normally take 2-4 weeks from the ship date to reach their destination.</li>
+                        <li>We are not responsible for lost packages due to shipping addresses provided incorrectly. shipping delays will occur if an incorrect address is provided at checkout.</li>
+                        <li>If your package is returned to our facility due to shipping error, we will contact you for an updated address via the e-mail provided with your shipping information. If we do not receive a response within 10 business days, we hold the right to refund your order. This applies to all merchandise orders, including limited edition and pre-order sales.</li>
+                    </ul>
+
+
+
+                <h4 class="text-uppercase">returns and exchanges</h4>
+                    <ul>
+                        <li>We are only able to process a return or exchange request within 45 days from the date you receive your order. Unfortunately, we are unable to accommodate any requests falling outside of these guidelines. </li>
+                        <li>All items must be returned in their original condition with tags attached and must not be washed, worn, or altered in any way. </li>
+                        <li>We are unable to accept return or exchange requests for any limited edition, clearance, or sale items.</li>
+                        <li>The customer is responsible for the cost of a return or exchange shipment unless the return or exchange is due to fault of the company. (see “damaged, incorrect, or incomplete orders”)</li>
+                        <li>If you are returning an item for a refund, please allow 3-5 business days for your item to be processed. Refunds typically take 2-3 business days to appear in your account once they have been processed, but in some cases may take up to 10 business days.</li>
+
+                    </ul>
+
+
+            </div>
+
+            <div class="footer">
+                <footer>
+                    <div class="row no-gutters">
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="https://www.codingdojo.com/contact-us">CONTACT US</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/faq">FAQ</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="/tos">TERMS OF SERVICE</a>
+                        <a class="col-sm-12 col-md-3 col-lg-3" href="http://d11p8zzranqxa6.cloudfront.net/files/Privacy_Policy.pdf">PRIVACY POLICY</a>
+
+                    </div>
+                </footer>
+            </div>
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    </body>
+</html>
